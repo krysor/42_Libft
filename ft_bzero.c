@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 23:38:07 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/08 23:46:11 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/10 18:24:51 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	int	i;
 
 	i = 0;
-	while (i < n)
+	while (i < (int)n)
 	{
 		((char *)s)[i] = '\0';
 		i++;
