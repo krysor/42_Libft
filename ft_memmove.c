@@ -6,13 +6,11 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 10:42:33 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/11 11:33:40 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:33:37 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-
-#include <stdio.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {

@@ -6,12 +6,11 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 11:36:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/10 18:11:39 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/11 15:33:19 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-#include <stdio.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
