@@ -6,11 +6,11 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 11:28:58 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/11 15:33:55 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/12 18:45:36 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

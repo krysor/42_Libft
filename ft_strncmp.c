@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 10:42:33 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/12 18:44:50 by kkaczoro         ###   ########.fr       */
+/*   Created: 2022/03/12 18:29:11 by kkaczoro          #+#    #+#             */
+/*   Updated: 2022/03/12 18:55:37 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	int		i;
-	char	*temp;
-
-	i = 0;
-	temp = (char *)src;
-	if (src > dest)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{	
+	while (n && *s1 && *s1 == *s2)
 	{
-		while (i < (int)n)
-		{
-			((char *)dest)[i] = temp[i];
-			i++;
-		}	
+		s1++;
+		s2++;
+		n--;
 	}
-	else
-	{
-		while (i < (int)n)
-		{
-			((char *)dest)[n - 1 - i] = temp[n - 1 - i];
-			i++;
-		}	
-	}
-	return (dest);
+	if (n == 0)
+		return (0);
+	return ((unsigned char)(*s1) - (unsigned char)(*s2));
 }
