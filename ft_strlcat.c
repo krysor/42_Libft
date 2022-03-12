@@ -6,31 +6,75 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 12:10:36 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/11 15:46:51 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/12 16:11:36 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int	ft_strlen(char *str);
+size_t	ft_strlen(char *str);
+
+/*
+size_t	ft_strlcat(char *dest,
+		const char *src, size_t destsize)
+{
+	size_t	i;
+	size_t	j;
+
+	j = 0;
+	i = 0;
+	while (dest[j] && j < destsize)
+		j++;
+	while ((src[i] && (j + i + 1) < destsize))
+	{
+		dest[j + i] = src[i];
+		i++;
+	}
+	if (j != destsize)
+		dest[j + i] = '\0';
+	return (j + ft_strlen((char *)src));
+}
+*/
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	lendst;
-	int	i;
+	size_t	index;
+	size_t	nbs_to_add;
+	size_t	len_dst;
+	size_t	len_src;
 
-	lendst = ft_strlen(dst);
-	if ((int)size > lendst + 1)
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen((char *)src);
+	if (size > len_dst)
 	{
-		i = 0;
-		size -= lendst;
-		while (size && src[i])
+		index = 0;
+		nbs_to_add = size - len_dst - 1;
+		while (nbs_to_add && src[index])
 		{
-			dst[lendst + i] = src[i];
-			i++;
+			dst[len_dst + index] = src[index];
+			index++;
+			nbs_to_add--;
 		}
-		dst[lendst + i] = '\0';
-		return ((size_t)(lendst + ft_strlen((char *)src)));
+		if (index < size)
+			dst[len_dst + index] = '\0';
+		return (len_dst + len_src);
 	}
-	return ((size_t)(size + ft_strlen((char *)src)));
+	return (size + len_src);
 }
+
+/*
+#include <stdio.h>
+ 
+int	main()
+{
+	char	dest[15];
+	size_t	res;	
+
+	memset(dest, 0, 15);
+	memset(dest, 'r', 6);
+
+	dest[10] = 'a';
+	res = ft_strlcat(dest, "lorem ipsum dolor sit amet", 6);
+	printf("dest: %s \nres: %d", dest, (int)res);
+}
+*/
