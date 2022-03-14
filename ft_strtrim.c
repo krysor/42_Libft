@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:06:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/13 23:44:51 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/14 11:54:43 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int	ft_ind_end(char const *s1, char const *set)
 	int		j;
 
 	i = ft_strlen(s1) - 1;
-	if (i < 0)
-		i = 0;
+	if (i == -1)
+		return (0);
 	j = 0;
 	while (set[j])
 	{
@@ -63,12 +63,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i_beg = ft_ind_beg(s1, set);
 	i_end = ft_ind_end(s1, set);
-	str = malloc(sizeof(char) * (1 + i_end - i_beg) + 1);
+	str = malloc(sizeof(char) * (2 + i_end - i_beg));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
 	while (i_beg <= i_end)
 		str[i++] = s1[i_beg++];
-	str[i_beg] = '\0';
+	str[i] = '\0';
 	return (str);
 }
