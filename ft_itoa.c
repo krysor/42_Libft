@@ -6,54 +6,61 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:19:27 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/14 17:51:34 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:30:00 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa_real(int n)
+int	ft_charnb(int n)
 {
-	char	*dst;
-	char	*src;
+	int	nb;
+	int	div;
 
-	if (n == 0)
-		return ("");
-	else
+	nb = 10;
+	div = 1000000000;
+	while (n / div == 0)
 	{
-		src = "a";
-		src[0] = n % 10 + '0';
-		dst = ft_itoa_real(n / 10);
-		ft_strlcat(dst, src, 12);
-		return (dst);
+		nb--;
+		div /= 10;
 	}
+	return (nb);
+}
+
+void	ft_itoareal(int n, char *str, int len)
+{
+	int	i;
+
+	i = len - 1;
+	while (n / 10 != 0)
+	{
+		str[i] = n % 10 + '0';
+		i--;
+		n /= 10;
+	}
+	str[i] = n % 10 + '0';
 }
 
 char	*ft_itoa(int n)
 {
+	int		nbchr;
+	char	*str;
+
 	if (n == 0)
 		return (ft_strdup("0"));
 	else if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	else if (n < 0)
-		return (ft_strjoin("-", ft_itoa_real(n)));
+		nbchr = 1 + ft_charnb(-n);
 	else
-		return (ft_strdup(ft_itoa_real(n)));
-}
-
-/*
-	str = ft_memset(str, 'a', 13);
-	i = 12;
+		nbchr = ft_charnb(n);
+	str = (char *)malloc(sizeof(char) * nbchr + 1);
+	str[nbchr] = '\0';
 	if (n < 0)
 	{
-		str[12] = '-';
+		str[0] = '-';
 		n *= -1;
-		i--;
 	}
-	while (n > 0)
-	{
-		str[i] = n % 10 + '0';
-		n -= n / 10;
-		i--;
-	}
-*/
+	ft_itoareal(n, str, nbchr);
+	return (str);
+}
