@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:57:00 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 19:13:03 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:59:20 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,12 @@ static char	**ft_arrstr(char **arr, char *str, int len)
 		if (str[i] != '\0')
 		{
 			arr[j] = ft_strdup(str + i);
+			if (arr[j] == NULL)
+			{
+				while (j >= 0)
+					free(arr[j--]);
+				return (NULL);
+			}
 			i += ft_strlen(arr[j]);
 			j++;
 		}
@@ -79,11 +85,23 @@ char	**ft_split(char const *s, char c)
 	int		len;
 
 	len = ft_strlen(s);
-	str = ft_zerosubst(ft_strdup(s), c);
+	str = ft_strdup(s);
+	if (str == NULL)
+		return (NULL);
+	str = ft_zerosubst(str, c);
 	arr = (char **)malloc(sizeof(char *) * (ft_strnb(s, c) + 1));
 	if (arr == NULL)
+	{
+		free(str);
 		return (NULL);
+	}
 	arr = ft_arrstr(arr, str, len);
+	if (arr == NULL)
+	{
+		free(str);
+		free(arr);
+		return (NULL);
+	}
 	free(str);
 	return (arr);
 }

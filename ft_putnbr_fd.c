@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 18:11:23 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 18:51:23 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:26:44 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 
-void	ft_putnbr_fd_real(int n, int fd)
+static void	ft_putnbr_fd_real(int n, int fd)
 {
 	if (n / 10 == 0)
 		ft_putchar_fd(n % 10 + '0', fd);

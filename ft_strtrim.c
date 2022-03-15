@@ -6,13 +6,13 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:06:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/14 11:54:43 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 23:27:44 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_ind_beg(char const *s1, char const *set)
+static int	ft_ind_beg(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
@@ -32,7 +32,7 @@ int	ft_ind_beg(char const *s1, char const *set)
 	return (i);
 }
 
-int	ft_ind_end(char const *s1, char const *set)
+static int	ft_ind_end(char const *s1, char const *set)
 {
 	int		i;
 	int		j;
