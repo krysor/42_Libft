@@ -6,13 +6,13 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:19:27 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 18:39:58 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:11:48 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_charnb(int n)
+static int	ft_charnb(int n)
 {
 	int	nb;
 	int	div;
@@ -27,7 +27,7 @@ int	ft_charnb(int n)
 	return (nb);
 }
 
-void	ft_itoareal(int n, char *str, int len)
+static void	ft_itoareal(int n, char *str, int len)
 {
 	int	i;
 

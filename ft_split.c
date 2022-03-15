@@ -6,13 +6,13 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:57:00 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 15:46:52 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 19:13:03 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_zerosubst(char *str, char c)
+static char	*ft_zerosubst(char *str, char c)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ char	*ft_zerosubst(char *str, char c)
 	return (str);
 }
 
-int	ft_strnb(char const *s, char c)
+static int	ft_strnb(char const *s, char c)
 {
 	int	p;
 	int	nb;
@@ -50,7 +50,7 @@ int	ft_strnb(char const *s, char c)
 	return (nb);
 }
 
-char	**ft_arrstr(char **arr, char *str, int len)
+static char	**ft_arrstr(char **arr, char *str, int len)
 {
 	int	i;
 	int	j;
