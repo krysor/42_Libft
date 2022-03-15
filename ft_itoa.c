@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:19:27 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 15:30:00 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:43:39 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ char	*ft_itoa(int n)
 		nbchr = 1 + ft_charnb(-n);
 	else
 		nbchr = ft_charnb(n);
-	str = (char *)malloc(sizeof(char) * nbchr + 1);
+	str = (char *)malloc(sizeof(char) * (nbchr + 1));
+	if (str == NULL)
+		return (NULL);
 	str[nbchr] = '\0';
 	if (n < 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:57:00 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/14 16:15:01 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:46:52 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,10 @@ char	**ft_split(char const *s, char c)
 
 	len = ft_strlen(s);
 	str = ft_zerosubst(ft_strdup(s), c);
-	arr = ft_arrstr((char **)malloc(sizeof(char *)
-				* (ft_strnb(s, c) + 1)), str, len);
+	arr = (char **)malloc(sizeof(char *) * (ft_strnb(s, c) + 1));
+	if (arr == NULL)
+		return (NULL);
+	arr = ft_arrstr(arr, str, len);
 	free(str);
 	return (arr);
 }
