@@ -6,7 +6,7 @@
 #    By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 15:04:19 by kkaczoro          #+#    #+#              #
-#    Updated: 2022/03/15 20:26:24 by kkaczoro         ###   ########.fr        #
+#    Updated: 2022/03/16 14:27:54 by kkaczoro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,3 +35,7 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
