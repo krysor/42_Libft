@@ -6,7 +6,7 @@
 #    By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 15:04:19 by kkaczoro          #+#    #+#              #
-#    Updated: 2022/03/16 21:00:44 by kkaczoro         ###   ########.fr        #
+#    Updated: 2022/03/16 22:02:28 by kkaczoro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ bonus:		${BOBJS}
 			ar r ${NAME} ${BOBJS}
 
 clean:
-			${RM} ${OBJS} ${OBJS}
+			${RM} ${OBJS} ${BOBJS}
 
 fclean:		clean
 			${RM} ${NAME}
