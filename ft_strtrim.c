@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:06:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 23:27:44 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:01:48 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_ind_end(char const *s1, char const *set)
 	if (i == -1)
 		return (0);
 	j = 0;
-	while (set[j])
+	while (set[j] && i >= 0)
 	{
 		if (s1[i] == set[j])
 		{
@@ -57,12 +57,14 @@ static int	ft_ind_end(char const *s1, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	int		i_beg;
-	int		i_end;
-	int		i;
+	size_t	i_beg;
+	size_t	i_end;
+	size_t	i;
 
 	i_beg = ft_ind_beg(s1, set);
 	i_end = ft_ind_end(s1, set);
+	if (i_beg > i_end)
+		return (ft_strdup(""));
 	str = malloc(sizeof(char) * (2 + i_end - i_beg));
 	if (str == NULL)
 		return (NULL);

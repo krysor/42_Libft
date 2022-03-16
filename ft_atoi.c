@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 22:16:31 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 19:11:22 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:31:55 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,43 @@ static int	ft_isspace(char chr)
 	return (0);
 }
 
+static	int	ft_nbdigit(char *s)
+{
+	int	nb;
+
+	nb = 0;
+	while (*s && ft_isdigit(*s))
+	{
+		nb++;
+		s++;
+	}	
+	return (nb);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	nb;
-	int	sign;
+	int		nb;
+	int		sign;
+	char	*str;
 
-	i = 0;
 	nb = 0;
 	sign = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-')
+	str = (char *)nptr;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-')
 	{
 		sign = -1;
-		i++;
+		str++;
 	}
-	else if (nptr[i] == '+')
-		i++;
-	if (!ft_isdigit(nptr[i]))
+	else if (*str == '+')
+		str++;
+	if (!ft_isdigit(*str) || (sign == -1
+			&& ft_nbdigit(str) > 19))
 		return (0);
-	while (ft_isdigit(nptr[i]))
-	{
-		nb = nb * 10 + nptr[i] - '0';
-		i++;
-	}
+	else if (ft_nbdigit(str) > 19)
+		return (-1);
+	while (ft_isdigit(*str))
+		nb = nb * 10 + *str++ - '0';
 	return (sign * nb);
 }

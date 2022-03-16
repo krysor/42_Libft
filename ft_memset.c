@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 11:36:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 20:47:10 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:15:04 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memset(void *s, int c, size_t n)
 	int	i;
 
 	i = 0;
+	if (s == NULL && c == 0)
+		return (NULL);
 	while (i < (int)n)
 	{
 		((char *)s)[i] = c;

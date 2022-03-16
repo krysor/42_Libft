@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 23:47:08 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/12 18:44:44 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 17:16:55 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	int	i;
 
 	i = 0;
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	while (i < (int)n)
 	{
 		((char *)dest)[i] = ((char *)src)[i];
