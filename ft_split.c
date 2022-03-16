@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 11:57:00 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 19:59:20 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:56:27 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ static char	**ft_arrstr(char **arr, char *str, int len)
 			i++;
 	}
 	arr[j] = 0;
+	free(str);
 	return (arr);
 }
 
@@ -84,6 +85,8 @@ char	**ft_split(char const *s, char c)
 	char	*str;
 	int		len;
 
+	if (s == NULL)
+		return (NULL);
 	len = ft_strlen(s);
 	str = ft_strdup(s);
 	if (str == NULL)
@@ -102,6 +105,5 @@ char	**ft_split(char const *s, char c)
 		free(arr);
 		return (NULL);
 	}
-	free(str);
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 21:06:17 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/16 17:01:48 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:57:49 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i_end;
 	size_t	i;
 
+	if ((s1 == NULL && set == NULL) || (s1 == NULL || set == NULL))
+		return (NULL);
 	i_beg = ft_ind_beg(s1, set);
 	i_end = ft_ind_end(s1, set);
 	if (i_beg > i_end)

@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 17:43:34 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/16 16:06:05 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:52:19 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	int		ind;
 	size_t	len_s;
 
+	if (s == NULL)
+		return (NULL);
 	len_s = ft_strlen(s);
 	if (start > len_s)
 		return (ft_strdup(""));

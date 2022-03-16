@@ -6,7 +6,7 @@
 /*   By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 17:56:26 by kkaczoro          #+#    #+#             */
-/*   Updated: 2022/03/15 18:10:44 by kkaczoro         ###   ########.fr       */
+/*   Updated: 2022/03/16 18:46:24 by kkaczoro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	if (s != NULL)
+	{
+		write(fd, s, ft_strlen(s));
+		write(fd, "\n", 1);
+	}
 }
