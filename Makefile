@@ -6,7 +6,7 @@
 #    By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 15:04:19 by kkaczoro          #+#    #+#              #
-#    Updated: 2022/03/17 11:20:41 by kkaczoro         ###   ########.fr        #
+#    Updated: 2022/03/17 16:05:03 by kkaczoro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,5 +53,5 @@ re:			fclean all
 .PHONY:		all bonus clean fclean re
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
