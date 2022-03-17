@@ -6,7 +6,7 @@
 #    By: kkaczoro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/10 15:04:19 by kkaczoro          #+#    #+#              #
-#    Updated: 2022/03/16 22:02:28 by kkaczoro         ###   ########.fr        #
+#    Updated: 2022/03/17 11:20:41 by kkaczoro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ ${NAME}:	${OBJS}
 all:		${NAME}
 
 bonus:		${BOBJS}
-			ar r ${NAME} ${BOBJS}
+			@ar r ${NAME} ${BOBJS}
+			@echo "relinking bonus finished"
 
 clean:
 			${RM} ${OBJS} ${BOBJS}
